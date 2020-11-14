@@ -22,7 +22,6 @@ Page {
          }
          Button {
              id: button1
-             x: parent.horizontalCenter
              y: 200
              text: "Кнопка"
              onClicked: {
@@ -31,7 +30,6 @@ Page {
          }
          Button {
              id: button2
-             x: parent.horizontalCenter
              y: 400
              text: "Кнопка"
          }
