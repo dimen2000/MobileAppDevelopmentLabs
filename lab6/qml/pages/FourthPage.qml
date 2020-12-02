@@ -11,13 +11,16 @@ Page {
 
         PullDownMenu {
             MenuItem {
-                text: qsTr("Show Page 4")
-                onClicked: pageStack.push(Qt.resolvedUrl("FourthPage.qml"))
+                text: qsTr("Show Page 5")
+                onClicked: pageStack.push(Qt.resolvedUrl("FifthPage.qml"))
             }
         }
-        TrafficLights{
-            x: 100
-            y: 100
+        CustomButton {
+            MenuItem {
+                text: qsTr("Custom")
+                color: "red"
+            }
         }
     }
 }
+

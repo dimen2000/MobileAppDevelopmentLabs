@@ -18,8 +18,14 @@ SOURCES += src/lab6.cpp
 
 DISTFILES += qml/lab6.qml \
     qml/cover/CoverPage.qml \
+    qml/pages/CustomButton.qml \
+    qml/pages/FifthPage.qml \
     qml/pages/FirstPage.qml \
+    qml/pages/FourthPage.qml \
     qml/pages/SecondPage.qml \
+    qml/pages/SeventhPage.qml \
+    qml/pages/SixthPage.qml \
+    qml/pages/StopWatch.qml \
     qml/pages/ThirdPage.qml \
     qml/pages/TrafficLights.qml \
     rpm/lab6.changes.in \
