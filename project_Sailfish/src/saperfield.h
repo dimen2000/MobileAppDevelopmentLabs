@@ -17,11 +17,11 @@ protected:
 public:
     SaperField();
     SaperField(int);
-    void SetSize(int);
+    Q_INVOKABLE void setSize(int);
     int GetSize();
     void ClearSquare(int, int);
     char OpenSquare(int, int);
-    void SetFlag(int, int);
+    Q_INVOKABLE void setFlag(int, int);
     Q_INVOKABLE char openCell(int, int);
     char Win();
     Q_INVOKABLE char getCell(int, int);

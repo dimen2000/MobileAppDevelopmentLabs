@@ -20,7 +20,7 @@ SaperField::SaperField(int s): QObject()
     }
 }
 
-void SaperField::SetSize(int s)
+void SaperField::setSize(int s)
 {
     if(arr)
     {
@@ -47,10 +47,8 @@ int SaperField::GetSize()
     return size;
 }
 
-void SaperField::ClearSquare(int k, int l)
+void SaperField::ClearSquare(int l, int k)
 {
-    k++;
-    l++;
     arr[l][k] = arr[l][k] & 0xFE;
     arr[l+1][k+1] = arr[l+1][k+1]&0xFE;
     arr[l+1][k] = arr[l+1][k]&0xFE;
@@ -62,12 +60,12 @@ void SaperField::ClearSquare(int k, int l)
     arr[l][k+1] = arr[l][k+1]&0xFE;
 }
 
-char SaperField::getCell(int k, int l)
+char SaperField::getCell(int l, int k)
 {
-    return arr[l + 1][k + 1];
+    return arr[l][k];
 }
 
-char SaperField::OpenSquare(int k, int l)
+char SaperField::OpenSquare(int l, int k)
 {
     return openCell (l,k) |
     openCell(l+1,k+1) |
@@ -82,8 +80,6 @@ char SaperField::OpenSquare(int k, int l)
 
 char SaperField::openCell(int l, int k)
 {
-    k++;
-    l++;
     if (!(arr[l][k] & 0x02)||(l*k==0)||(l==size+1)||(k==size+1)||(arr[l][k] & 0x04))
         return Win();
     arr[l][k]=arr[l][k] & 0xFD;
@@ -118,9 +114,9 @@ char SaperField::Win()
     return won;
 }
 
-void SaperField::SetFlag(int k, int l)
+void SaperField::setFlag(int l, int k)
 {
-    arr[l + 1][k + 1]=arr[l + 1][k + 1] ^ 0x04;
+    arr[l][k]=arr[l][k] ^ 0x04;
 }
 
 unsigned char SaperField::CountNeighbours(int a, int b)
@@ -138,7 +134,7 @@ unsigned char SaperField::CountNeighbours(int a, int b)
 }
 
 
-void SaperField::randomFullfil(int k, int l, int bomb)
+void SaperField::randomFullfil(int l, int k, int bomb)
 {
     srand(time(NULL));
     for(int i = 1; i < size+1; i++)
@@ -149,7 +145,7 @@ void SaperField::randomFullfil(int k, int l, int bomb)
 
         }
     }
-    ClearSquare(k, l);
+    ClearSquare(l, k);
     for(int i = 1; i < size+1; i++)
     {
         for(int j = 1; j < size+1; j++)
